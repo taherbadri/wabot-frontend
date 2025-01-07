@@ -8,9 +8,13 @@ export function cn(...inputs) {
 }
 
 export const customFetch = axios.create({
-	baseURL: 'http://localhost:5000/api/v1',
+	baseURL: process.env.NEXT_PUBLIC_BACKEND_URL,
 	withCredentials: true,
 });
+console.log(
+	`file: utils.js:15 - process.env.BACKEND_URL:`,
+	process.env.BACKEND_URL
+);
 
 export function transformChartData(data, interval) {
 	switch (interval) {
